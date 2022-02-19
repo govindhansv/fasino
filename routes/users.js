@@ -16,11 +16,13 @@ const cloudinary = require("cloudinary");
 
 router.get('/', async function (req, res) {
   if (req.session.loggedIN) {
-    let id = req.session.user
-    let user =  await db.get().collection('users').findOne({ _id: ObjectId(id) })
-    let blogs = await db.get().collection('blogs').find().toArray()
-    let newblog = blogs[0]
-    res.render('index', { blogs,user,newblog });
+//     let id = req.session.user
+//     let user =  await db.get().collection('users').findOne({ _id: ObjectId(id) })
+//     let blogs = await db.get().collection('blogs').find().toArray()
+//     let newblog = blogs[0]
+//     res.render('index', { blogs,user,newblog });
+        res.redirect('/')
+
   } else {
     res.redirect('/')
   }
